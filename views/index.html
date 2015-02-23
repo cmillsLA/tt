@@ -1,0 +1,25 @@
+<h1>Dashboard</h1>
+
+<a href="#/trip" class="button">Start a new trip</a>
+
+<a href="#/{{ userId }}/profile" class="button">Edit Profile</a>
+
+<div class="panel">
+	<h2>My Trips</h2>
+	<ul>
+		<li ng-repeat="trip in trips | orderBy:'name'">
+			<h3><a href="#/trips/{{ userId }}/{{ trip.id }}/">{{ trip.name }}</a></h3>
+			<p>{{ trip.startDate }} - {{ trip.endDate }}</p>
+			<p ng-repeat="friend in trip.friends"><a href="{{ friend.userId }}">{{ friend.name }}</a></p>
+		</li>
+	</ul>
+</div>
+
+<div class="panel">
+	<h2>My Latest Messages</h2>
+	<ul>
+		<li ng-repeat="msg in msgs">
+			<a href="#/messages/{{ userId }}/{{ msg.id }}/">{{ msg.exerpt }}</a>
+		</li>
+	</ul>
+</div>
